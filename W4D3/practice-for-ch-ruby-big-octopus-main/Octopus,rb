@@ -1,0 +1,15 @@
+fishes  = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 
+ 'fiiiissshhhhhh']
+
+def biggest_fish(fishes)
+  biggest_fish = ''
+
+  fishes.each do |fish|
+    if fish.length > biggest_fish.length
+      biggest_fish = fish 
+    end
+  end
+  biggest_fish
+
+end
+
