@@ -52,3 +52,39 @@ end
 #  array.queue(8)
 #  array.dequeue
 #  array.peek
+
+
+class Map
+  def initialize 
+    @underlying_array = []
+
+  end
+
+  def set(key, value)
+    pair_index = underlying_array.index {|pair| pair[0] == key}
+    if pair_index
+      underlying_array[pair_index][1] = value
+    else
+      underlying_array.push([key,value])
+    end
+    value 
+  end
+
+  def get(key)
+    underlying_array.each {|pair| return pair[1] if pair[0] == key}
+    nil
+  end
+
+  def delete(key)
+    value = get(key)
+    underlying_array.reject! {|pair| pair[0] == key}
+    value
+  end
+  def show
+    deep_dup(underlying_array)
+  end
+  private
+  def deep_dup(array)
+    arr.map {|ele| ele.is_a?(Array) ? deep_cup(ele) : ele}
+  end
+end
